@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="relationclasstask02">
+  <ClassDiagramComponents>
+    <Class name="Game" package="relationclasstask02.entity" visibility="public" xPosition="692.0" yPosition="327.0">
+      <Fields>
+        <Field name="players" type="ArrayList&lt;Player&gt;" visibility="private"/>
+        <Field name="waterPistol" type="WaterPistol" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="ArrayList&lt;Player&gt;" name="players"/>
+          <Argument type="WaterPistol" name="waterPistol"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPlayers" returnType="ArrayList&lt;Player&gt;" visibility="public"/>
+        <Method name="setPlayers" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Player&gt;" name="players"/>
+        </Method>
+        <Method name="getWaterPistol" returnType="WaterPistol" visibility="public"/>
+        <Method name="setWaterPistol" returnType="void" visibility="public">
+          <Argument type="WaterPistol" name="waterPistol"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Player" package="relationclasstask02.entity" visibility="public" xPosition="112.0" yPosition="466.0">
+      <Fields>
+        <Field name="id" type="Integer" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="wet" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="String" name="name"/>
+          <Argument type="boolean" name="wet"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="Integer" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="isWet" returnType="boolean" visibility="public"/>
+        <Method name="setWet" returnType="void" visibility="public">
+          <Argument type="boolean" name="wet"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="WaterPistol" package="relationclasstask02.entity" visibility="public" xPosition="191.0" yPosition="119.0">
+      <Fields>
+        <Field name="actualPosition" type="Integer" visibility="private"/>
+        <Field name="waterPosition" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="actualPosition"/>
+          <Argument type="Integer" name="waterPosition"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getActualPosition" returnType="Integer" visibility="public"/>
+        <Method name="setActualPosition" returnType="void" visibility="public">
+          <Argument type="Integer" name="actualPosition"/>
+        </Method>
+        <Method name="getWaterPosition" returnType="Integer" visibility="public"/>
+        <Method name="setWaterPosition" returnType="void" visibility="public">
+          <Argument type="Integer" name="waterPosition"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="RelationClassTask02" package="relationclasstask02" visibility="public" xPosition="769.0" yPosition="119.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="gameService" package="relationclasstask02.services" visibility="public" xPosition="538.0" yPosition="687.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="fillGame" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Player&gt;" name="players"/>
+          <Argument type="WaterPistol" name="waterPistol"/>
+          <Argument type="Game" name="game"/>
+          <Argument type="waterPistolService" name="waterPistolServ"/>
+        </Method>
+        <Method name="round" returnType="void" visibility="public">
+          <Argument type="Game" name="game"/>
+          <Argument type="playerService" name="playerServ"/>
+          <Argument type="waterPistolService" name="waterPistolServ"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="playerService" package="relationclasstask02.services" visibility="public" xPosition="1102.0" yPosition="552.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="addPlayer" returnType="ArrayList&lt;Player&gt;" visibility="public">
+          <Argument type="Player" name="player"/>
+        </Method>
+        <Method name="shoot" returnType="boolean" visibility="public">
+          <Argument type="WaterPistol" name="waterPistol"/>
+          <Argument type="waterPistolService" name="waterPistolServ"/>
+          <Argument type="Player" name="player"/>
+          <Argument type="Game" name="game"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="waterPistolService" package="relationclasstask02.services" visibility="public" xPosition="1123.0" yPosition="156.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="fillPistol" returnType="void" visibility="public">
+          <Argument type="WaterPistol" name="waterPistol"/>
+          <Argument type="int" name="numberPlayers"/>
+        </Method>
+        <Method name="wet" returnType="boolean" visibility="public">
+          <Argument type="Game" name="game"/>
+        </Method>
+        <Method name="nextJet" returnType="void" visibility="public">
+          <Argument type="WaterPistol" name="waterPistol"/>
+        </Method>
+        <Method name="showInfo" returnType="void" visibility="public">
+          <Argument type="WaterPistol" name="waterPistol"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="relationclasstask02.services.gameService" target="relationclasstask02.services.waterPistolService" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="relationclasstask02.services.waterPistolService" target="relationclasstask02.entity.Game" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="relationclasstask02.services.playerService" target="relationclasstask02.services.waterPistolService" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="relationclasstask02.entity.Game" target="relationclasstask02.entity.Player" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="relationclasstask02.services.playerService" target="relationclasstask02.entity.Player" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="relationclasstask02.services.waterPistolService" target="relationclasstask02.entity.WaterPistol" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="waterPistol" source="relationclasstask02.entity.Game" target="relationclasstask02.entity.WaterPistol" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="players" source="relationclasstask02.entity.Game" target="relationclasstask02.entity.Player" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Player&gt;"/>
+    <UseRelation source="relationclasstask02.entity.Game" target="relationclasstask02.entity.WaterPistol" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

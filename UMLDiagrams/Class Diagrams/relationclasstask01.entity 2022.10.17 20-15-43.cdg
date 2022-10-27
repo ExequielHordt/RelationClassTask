@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="relationclasstask01.entity">
+  <ClassDiagramComponents>
+    <Class name="Dog" package="relationclasstask01.entity" visibility="public" xPosition="94.0" yPosition="90.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="breed" type="String" visibility="private"/>
+        <Field name="age" type="Integer" visibility="private"/>
+        <Field name="size" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="breed"/>
+          <Argument type="Integer" name="age"/>
+          <Argument type="double" name="size"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getBreed" returnType="String" visibility="public"/>
+        <Method name="setBreed" returnType="void" visibility="public">
+          <Argument type="String" name="breed"/>
+        </Method>
+        <Method name="getAge" returnType="Integer" visibility="public"/>
+        <Method name="setAge" returnType="void" visibility="public">
+          <Argument type="Integer" name="age"/>
+        </Method>
+        <Method name="getSize" returnType="double" visibility="public"/>
+        <Method name="setSize" returnType="void" visibility="public">
+          <Argument type="double" name="size"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Person" package="relationclasstask01.entity" visibility="public" xPosition="797.0" yPosition="90.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="lastName" type="String" visibility="private"/>
+        <Field name="id" type="long" visibility="private"/>
+        <Field name="dog" type="Dog" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="lastName"/>
+          <Argument type="long" name="id"/>
+          <Argument type="Dog" name="dog"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getLastName" returnType="String" visibility="public"/>
+        <Method name="setLastName" returnType="void" visibility="public">
+          <Argument type="String" name="lastName"/>
+        </Method>
+        <Method name="getId" returnType="long" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="long" name="id"/>
+        </Method>
+        <Method name="getDog" returnType="Dog" visibility="public"/>
+        <Method name="setDog" returnType="void" visibility="public">
+          <Argument type="Dog" name="dog"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="dog" source="relationclasstask01.entity.Person" target="relationclasstask01.entity.Dog" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="relationclasstask01.entity.Person" target="relationclasstask01.entity.Dog" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="relationclasstask03">
+  <ClassDiagramComponents>
+    <Class name="Card" package="relationclasstask03.entity" visibility="public" xPosition="343.0" yPosition="20.0">
+      <Fields>
+        <Field name="number" type="int" visibility="private"/>
+        <Field name="suit" type="Suits" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="number"/>
+          <Argument type="Suits" name="suit"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumber" returnType="int" visibility="public"/>
+        <Method name="setNumber" returnType="void" visibility="public">
+          <Argument type="int" name="number"/>
+        </Method>
+        <Method name="getSuit" returnType="Suits" visibility="public"/>
+        <Method name="setSuit" returnType="void" visibility="public">
+          <Argument type="Suits" name="suit"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DeckOfCards" package="relationclasstask03.entity" visibility="public" xPosition="858.0" yPosition="71.0">
+      <Fields>
+        <Field name="cards" type="HashSet&lt;Card&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="HashSet&lt;Card&gt;" name="cards"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCards" returnType="HashSet&lt;Card&gt;" visibility="public"/>
+        <Method name="setCards" returnType="void" visibility="public">
+          <Argument type="HashSet&lt;Card&gt;" name="cards"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RelationClassTask03" package="relationclasstask03" visibility="public" xPosition="882.0" yPosition="367.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DeckOfCards_Service" package="relationclasstask03.Service" visibility="public" xPosition="199.0" yPosition="367.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="shuffle" returnType="DeckOfCards" visibility="public"/>
+        <Method name="nextCard" returnType="void" visibility="public">
+          <Argument type="DeckOfCards" name="deckOfCards"/>
+          <Argument type="ArrayList&lt;Card&gt;" name="secondDeckOfCards"/>
+        </Method>
+        <Method name="cardAvalaible" returnType="int" visibility="public">
+          <Argument type="DeckOfCards" name="deckOfCards"/>
+        </Method>
+        <Method name="giveCard" returnType="void" visibility="public">
+          <Argument type="DeckOfCards" name="deckOfCards"/>
+          <Argument type="ArrayList&lt;Card&gt;" name="secondDeckOfCards"/>
+        </Method>
+        <Method name="stackCards" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Card&gt;" name="secondDeckOfCards"/>
+        </Method>
+        <Method name="showDeckOfCards" returnType="void" visibility="public">
+          <Argument type="DeckOfCards" name="deckOfCards"/>
+        </Method>
+        <Method name="menu" returnType="void" visibility="public">
+          <Argument type="DeckOfCards" name="deckOfCards"/>
+          <Argument type="ArrayList&lt;Card&gt;" name="secondDeckOfCards"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="Suits" package="relationclasstask03.Lists" visibility="public" xPosition="41.0" yPosition="86.0">
+      <Literals>
+        <Literal name="SWORDS"/>
+        <Literal name="CUPS"/>
+        <Literal name="COINS"/>
+        <Literal name="CLUBS"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="suit" source="relationclasstask03.entity.Card" target="relationclasstask03.Lists.Suits" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="relationclasstask03.entity.DeckOfCards" target="relationclasstask03.entity.Card" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="relationclasstask03.Service.DeckOfCards_Service" target="relationclasstask03.entity.Card" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cards" source="relationclasstask03.entity.DeckOfCards" target="relationclasstask03.entity.Card" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashSet&lt;Card&gt;"/>
+    <UseRelation source="relationclasstask03.entity.Card" target="relationclasstask03.Lists.Suits" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="relationclasstask03.Service.DeckOfCards_Service" target="relationclasstask03.entity.DeckOfCards" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
