@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="RelationClassExtraTask01">
+  <ClassDiagramComponents>
+    <Class name="Dog" package="relationclassextratask01.entity" visibility="public" xPosition="40.0" yPosition="119.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="breed" type="Breed" visibility="private"/>
+        <Field name="size" type="String" visibility="private"/>
+        <Field name="adopted" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="Breed" name="breed"/>
+          <Argument type="String" name="size"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getBreed" returnType="Breed" visibility="public"/>
+        <Method name="setBreed" returnType="void" visibility="public">
+          <Argument type="Breed" name="breed"/>
+        </Method>
+        <Method name="getSize" returnType="String" visibility="public"/>
+        <Method name="setSize" returnType="void" visibility="public">
+          <Argument type="String" name="size"/>
+        </Method>
+        <Method name="isAdopted" returnType="boolean" visibility="public"/>
+        <Method name="setAdopted" returnType="void" visibility="public">
+          <Argument type="boolean" name="adopted"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Person" package="relationclassextratask01.entity" visibility="public" xPosition="943.0" yPosition="64.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="lastName" type="String" visibility="private"/>
+        <Field name="age" type="int" visibility="private"/>
+        <Field name="id" type="long" visibility="private"/>
+        <Field name="dogList" type="ArrayList&lt;Dog&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getDogList" returnType="ArrayList&lt;Dog&gt;" visibility="public"/>
+        <Method name="setDogList" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Dog&gt;" name="dogList"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="RelationClassExtraTask01" package="relationclassextratask01" visibility="public" xPosition="577.0" yPosition="64.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="adoptionService" package="relationclassextratask01.service" visibility="public" xPosition="460.0" yPosition="401.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="addPerson" returnType="ArrayList&lt;Person&gt;" visibility="public"/>
+        <Method name="addDog" returnType="ArrayList&lt;Dog&gt;" visibility="public"/>
+        <Method name="adopt" returnType="ArrayList&lt;Person&gt;" visibility="public">
+          <Argument type="ArrayList&lt;Person&gt;" name="persons"/>
+          <Argument type="ArrayList&lt;Dog&gt;" name="dogs"/>
+        </Method>
+        <Method name="show_dogsAdopted" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Person&gt;" name="persons"/>
+        </Method>
+        <Method name="menu" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Person&gt;" name="persons"/>
+          <Argument type="ArrayList&lt;Dog&gt;" name="dogs"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="Breed" package="relationclassextratask01.list" visibility="public" xPosition="384.0" yPosition="20.0">
+      <Literals>
+        <Literal name="GOLDEN_RETRIEVER"/>
+        <Literal name="BOSTON_TERRIER"/>
+        <Literal name="LABRADOR_RETRIEVER"/>
+        <Literal name="POODLE"/>
+        <Literal name="BORDER_COLLIE"/>
+        <Literal name="BEAGLE"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="relationclassextratask01.entity.Dog" target="relationclassextratask01.list.Breed" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="relationclassextratask01.entity.Person" target="relationclassextratask01.entity.Dog" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="relationclassextratask01.service.adoptionService" target="relationclassextratask01.entity.Person" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="dogList" source="relationclassextratask01.entity.Person" target="relationclassextratask01.entity.Dog" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Dog&gt;"/>
+    <HasRelation name="breed" source="relationclassextratask01.entity.Dog" target="relationclassextratask01.list.Breed" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="relationclassextratask01.service.adoptionService" target="relationclassextratask01.entity.Dog" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
